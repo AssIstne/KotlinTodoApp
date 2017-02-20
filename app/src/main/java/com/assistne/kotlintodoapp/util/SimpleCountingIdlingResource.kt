@@ -18,9 +18,9 @@ class SimpleCountingIdlingResource(private val resourceName: String) : IdlingRes
 
     override fun isIdleNow(): Boolean = counter.get() == 0
 
-    private fun increase() = counter.andIncrement
+    fun increment() = counter.andIncrement
 
-    private fun decrease() {
+    fun decrement() {
         val counterVal = counter.decrementAndGet()
         if (counterVal == 0) {
             resourceCallback?.onTransitionToIdle()

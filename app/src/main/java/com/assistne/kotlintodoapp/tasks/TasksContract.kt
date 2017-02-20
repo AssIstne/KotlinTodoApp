@@ -17,7 +17,7 @@ interface TasksContract {
         fun showTaskMarkedActive()
         fun showCompletedTasksCleared()
         fun showLoadingTasksError()
-        fun showNotTasks()
+        fun showNoTasks()
         fun showActiveFilterLabel()
         fun showCompletedFilterLabel()
         fun showAllFilterLabel()

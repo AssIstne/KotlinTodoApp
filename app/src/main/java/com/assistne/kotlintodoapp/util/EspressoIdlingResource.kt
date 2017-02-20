@@ -8,14 +8,10 @@ import android.support.test.espresso.IdlingResource
 class EspressoIdlingResource {
     companion object {
         const val RESOURCE = "GLOBAL"
-        val DEFAULT_INSTANCE by lazy { SimpleCountingIdlingResource(RESOURCE) }
-        fun increment() {
+        val DEFAULT_INSTANCE: SimpleCountingIdlingResource by lazy { SimpleCountingIdlingResource(RESOURCE) }
+        fun increment() = DEFAULT_INSTANCE.increment()
 
-        }
-
-        fun decrement() {
-
-        }
+        fun decrement() = DEFAULT_INSTANCE.decrement()
 
         fun getIdlingResource() : IdlingResource = DEFAULT_INSTANCE
     }

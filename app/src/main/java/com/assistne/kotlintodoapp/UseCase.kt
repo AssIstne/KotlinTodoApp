@@ -6,9 +6,9 @@ package com.assistne.kotlintodoapp
 abstract class UseCase<Q : UseCase.RequestValues, P : UseCase.ResponseValue> {
     var requestValues : Q? = null
     var userCaseCallback : UseCaseCallback<P>? = null
-    interface RequestValues {}
+    interface RequestValues
 
-    interface ResponseValue {}
+    interface ResponseValue
 
     interface UseCaseCallback<in R> {
         fun onSuccess(response: R)
