@@ -1,6 +1,9 @@
 package com.assistne.kotlintodoapp
 
 import android.content.Context
+import com.assistne.kotlintodoapp.addedittask.domain.usecase.DeleteTask
+import com.assistne.kotlintodoapp.addedittask.domain.usecase.GetTask
+import com.assistne.kotlintodoapp.addedittask.domain.usecase.SaveTask
 import com.assistne.kotlintodoapp.data.source.FakeTasksRemoteDataSource
 import com.assistne.kotlintodoapp.data.source.TasksRepository
 import com.assistne.kotlintodoapp.data.source.local.TasksLocalDataSource
@@ -27,5 +30,11 @@ class Injection {
         fun provideActivateTask(context: Context): ActivateTask = ActivateTask(provideTasksRepository(context))
 
         fun provideClearCompleteTasks(context: Context): ClearCompleteTasks = ClearCompleteTasks(provideTasksRepository(context))
+
+        fun provideGetTask(context: Context): GetTask = GetTask(Injection.provideTasksRepository(context))
+
+        fun provideSaveTask(context: Context): SaveTask = SaveTask(Injection.provideTasksRepository(context))
+
+        fun provideDeleteTask(context: Context): DeleteTask = DeleteTask(Injection.provideTasksRepository(context))
     }
 }

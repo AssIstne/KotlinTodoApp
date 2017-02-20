@@ -1,7 +1,9 @@
 package com.assistne.kotlintodoapp.tasks
 
+import android.app.Activity
 import com.assistne.kotlintodoapp.UseCase
 import com.assistne.kotlintodoapp.UseCaseHandler
+import com.assistne.kotlintodoapp.addedittask.AddEditTaskActivity
 import com.assistne.kotlintodoapp.tasks.domain.model.Task
 import com.assistne.kotlintodoapp.tasks.domain.usercase.ActivateTask
 import com.assistne.kotlintodoapp.tasks.domain.usercase.ClearCompleteTasks
@@ -32,7 +34,7 @@ class TasksPresenter(
     }
 
     override fun result(requestCode: Int, resultCode: Int) {
-        if (true) {
+        if (requestCode == AddEditTaskActivity.REQUEST_ADD_TASK && resultCode == Activity.RESULT_OK) {
             tasksView.showSuccessfullySavedMessage()
         }
     }

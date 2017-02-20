@@ -11,6 +11,7 @@ import android.view.*
 import android.widget.BaseAdapter
 import android.widget.PopupMenu
 import com.assistne.kotlintodoapp.R
+import com.assistne.kotlintodoapp.addedittask.AddEditTaskActivity
 import com.assistne.kotlintodoapp.tasks.domain.model.Task
 import kotlinx.android.synthetic.main.task_item.view.*
 import kotlinx.android.synthetic.main.tasks_frag.*
@@ -107,6 +108,7 @@ class TasksFragment : Fragment(), TasksContract.View {
     }
 
     override fun showAddTask() {
+        startActivityForResult(Intent(context, AddEditTaskActivity::class.java), AddEditTaskActivity.REQUEST_ADD_TASK)
     }
 
     override fun showTaskDetailsUi(taskId: String) {
