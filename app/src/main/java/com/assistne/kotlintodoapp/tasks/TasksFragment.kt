@@ -12,6 +12,7 @@ import android.widget.BaseAdapter
 import android.widget.PopupMenu
 import com.assistne.kotlintodoapp.R
 import com.assistne.kotlintodoapp.addedittask.AddEditTaskActivity
+import com.assistne.kotlintodoapp.taskdetail.TaskDetailActivity
 import com.assistne.kotlintodoapp.tasks.domain.model.Task
 import kotlinx.android.synthetic.main.task_item.view.*
 import kotlinx.android.synthetic.main.tasks_frag.*
@@ -112,7 +113,9 @@ class TasksFragment : Fragment(), TasksContract.View {
     }
 
     override fun showTaskDetailsUi(taskId: String) {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(context, TaskDetailActivity::class.java)
+        intent.putExtra(TaskDetailActivity.EXTRA_TASK_ID, taskId)
+        startActivity(intent)
     }
 
     override fun showTaskMarkedComplete() {
